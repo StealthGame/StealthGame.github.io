@@ -303,17 +303,12 @@ function createBaseIsland() {
     backgroundtiles[0][0] = "water";
     backgroundtiles[0][30] = "water";
     backgroundtiles[29][1] = "watertr";
-    for (var i = 0; i < backgroundtiles.length; i++) {
-        originalbackgroundtiles.push([])
-        for (var j = 0; j < backgroundtiles[i].length; j++) {
-            originalbackgroundtiles[i].push(backgroundtiles[i][j]);
-        }
-    }
+    originalbackgroundtiles = JSON.parse(JSON.stringify(backgroundtiles))
 }
 
 
 function addLevelSpecifics(level) {
-    backgroundtiles = originalbackgroundtiles;
+    backgroundtiles = JSON.parse(JSON.stringify(originalbackgroundtiles))
     if (levelspecifics[level].change) {
         for (var i = 0; i < levelspecifics[level].change.length; i++) {
             backgroundtiles[levelspecifics[level].change[i].x][levelspecifics[level].change[i].y] = levelspecifics[level].change[i].changeto;

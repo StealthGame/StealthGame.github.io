@@ -12,6 +12,7 @@ var spb = new SkillPointBar(10, 10, 80);
 var backgroundtiles = [];
 var originalbackgroundtiles = [];
 var howtoplaycurrent = 0;
+var startedplaying = false;
 
 
 
@@ -52,11 +53,20 @@ function preload() {
 function setup() {
     powerups.push(new SmokeBombPowerup());
     powerups.push(new WallPhasePowerup());
-    createBaseIsland();
-    createLevels();
+
+    if (startedplaying) {
+        addLevelSpecifics(curlevel);
+
+        createLevels();
+    } else {
+        createLevels();
+        createBaseIsland();
+        addLevelSpecifics(curlevel);
+    }
+
+
     playing = true;
     setLevel(levels[curlevel]);
-    addLevelSpecifics(curlevel);
     createCanvas(496, 496);
 }
 
@@ -148,12 +158,14 @@ function doCurrentAction() {
     if (currentThing == "winning") {
         if (currentThingTimeLeft == 0) {
             currentThing = "playing";
+            startedplaying = true;
             setup();
         }
         background(0, 0, 0);
         image(successimg, 0, 100, 500, 300);
     }
     if (currentThing == "failing") {
+        console.log(currentThingTimeLeft);
         if (currentThingTimeLeft == 0) {
             for (var powerup of powerupsunlocked) {
                 powerup.cooldowntime = 0;
@@ -166,7 +178,10 @@ function doCurrentAction() {
                     powerupsunlocked.splice(powerup.index, 1);
                 }
             }
+            console.log("test");
+            startedplaying = true;
             setup();
+            return;
         }
         background(0, 0, 0);
         image(failureimg, 0, 100, 500, 300);
