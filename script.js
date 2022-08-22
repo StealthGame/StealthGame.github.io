@@ -1,6 +1,6 @@
 var enemies, player, playing, objective, levels;
 var curlevel = 0;
-var startscreenimg, howtoplayscreenimg, successimg, failureimg, smokeunlockimg, smokeimg, wallphaseimg, wallphaseunlockimg, spritesheet, guardimgs, energyimg, cameraimg;
+var startscreenimgs, howtoplayscreenimg, successimg, failureimg, smokeunlockimg, smokeimg, wallphaseimg, wallphaseunlockimg, spritesheet, guardimgs, energyimg, cameraimg;
 var playerimages = { "left": [], "right": [], "up": [], "down": [] }
 var unlocking = "";
 var powerupsunlocked = [];
@@ -11,6 +11,7 @@ var using;
 var spb = new SkillPointBar(10, 10, 80);
 var backgroundtiles = [];
 var originalbackgroundtiles = [];
+var howtoplaycurrent = 0;
 
 
 
@@ -19,8 +20,14 @@ function drawSprite(x, y, s, sx, sy) {
 }
 
 function preload() {
-    startscreenimg = loadImage("img/startscreen.png");
-    howtoplayscreenimg = loadImage("img/HowToPlay.png");
+    startscreenimgs = [];
+    startscreenimgs.push(loadImage("img/startscreen/1.png"));
+    startscreenimgs.push(loadImage("img/startscreen/2.png"));
+    startscreenimgs.push(loadImage("img/startscreen/3.png"));
+    startscreenimgs.push(loadImage("img/startscreen/4.png"));
+    startscreenimgs.push(loadImage("img/startscreen/5.png"));
+    startscreenimgs.push(loadImage("img/startscreen/6.png"));
+    startscreenimgs.push(loadImage("img/startscreen/7.png"));
     successimg = loadImage("img/Success.png");
     failureimg = loadImage("img/Failure.png");
     smokeunlockimg = loadImage("img/smokebomb.png");
@@ -64,18 +71,21 @@ document.getElementById("playbtn").addEventListener("click", function() {
         currentThing = "playing";
     }
 });
-document.getElementById("howbtn").addEventListener("click", function() {
+document.getElementById("next").addEventListener("click", function() {
     if (currentThing == "starting") {
-        document.getElementById("back").style.display = "block";
-        currentThing = "howtoplay";
+        if (howtoplaycurrent < 6) {
+            howtoplaycurrent++;
+        }
     }
 });
-document.getElementById("back").addEventListener("click", function() {
-    if (currentThing == "howtoplay") {
-        currentThing = "starting";
-        document.getElementById("back").style.display = "none";
+document.getElementById("prev").addEventListener("click", function() {
+    if (currentThing == "starting") {
+        if (howtoplaycurrent > 0) {
+            howtoplaycurrent--;
+        }
     }
 });
+
 
 function draw() {
     if (currentThing != "playing") {
@@ -118,11 +128,7 @@ function draw() {
 function doCurrentAction() {
     if (currentThing == "starting") {
         background(0, 0, 0);
-        image(startscreenimg, 0, 0, 500, 400);
-    }
-    if (currentThing == "howtoplay") {
-        background(0, 0, 0);
-        image(howtoplayscreenimg, -100, 0, 650, 400);
+        image(startscreenimgs[howtoplaycurrent], 0, 0, 500, 500);
     }
     if (currentThing == "usingpowerup") {
         background(0, 0, 0);

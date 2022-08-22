@@ -1,26 +1,25 @@
 #playbtn {
-    width: 94px;
-    height: 44px;
+    width: 107px;
+    height: 36px;
     position: fixed;
-    top: 271px;
-    left: 210px;
+    top: 323px;
+    left: 352px;
 }
 
-#howbtn {
-    width: 142px;
-    height: 41px;
+#next {
+    width: 23px;
+    height: 22px;
     position: fixed;
     top: 329px;
-    left: 187px;
+    left: 312px;
+    display: block;
 }
 
-#back {
+#prev {
+    display: block;
+    width: 23px;
+    height: 22px;
     position: fixed;
-    color: white;
-    font-family: sans-serif;
-    font-weight: bold;
-    left: 30px;
-    top: -10px;
-    display: none;
-    font-size: 30px;
+    top: 329px;
+    left: 55px;
 }
