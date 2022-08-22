@@ -59,3 +59,16 @@ function rectOverlap(rect1, rect2) {
     }
     return false;
 }
+
+function doesTileHaveWater(x, y) {
+    if (x >= 496 || y >= 496) {
+        return true;
+    }
+    if (x <= 0 || y <= 0) {
+        return true;
+    }
+    if (backgroundtiles[Math.floor(y / 16)][Math.floor(x / 16)].includes("water")) {
+        return true;
+    }
+    return false;
+}
