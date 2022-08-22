@@ -13,6 +13,7 @@ var backgroundtiles = [];
 var originalbackgroundtiles = [];
 var howtoplaycurrent = 0;
 var startedplaying = false;
+var devmode = false;
 
 
 
@@ -94,6 +95,15 @@ document.getElementById("prev").addEventListener("click", function() {
             howtoplaycurrent--;
         }
     }
+});
+document.getElementById("devmode").addEventListener("click", function() {
+    var pswd = prompt("Password?");
+    if (pswd == "pandasreallylikebamboolol") {
+        document.getElementById("devmode").style.display = "none";
+        devmode = true;
+    }
+
+
 });
 
 

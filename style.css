@@ -23,3 +23,18 @@
     top: 329px;
     left: 55px;
 }
+
+#devmode {
+    display: block;
+    width: 75px;
+    text-align: center;
+    padding-top: 6px;
+    height: 25px;
+    position: fixed;
+    top: 450px;
+    left: 410px;
+    color: black;
+    border-radius: 5px;
+    border: 5px solid black;
+    background-color: #99ffff;
+}
