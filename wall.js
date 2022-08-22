@@ -16,5 +16,10 @@ class Wall extends Enemy {
     }
     states() {}
     transitions() {}
-
+    isVertical(n1, n2) {
+        if (n1.x == n2.x) {
+            return true;
+        }
+        return false;
+    }
 }
