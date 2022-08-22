@@ -7,6 +7,7 @@ class Objective {
         this.randomnum = 175;
     }
     draw() {
+        noStroke();
         imageMode(CENTER);
         this.timeInBetween++;
         if (this.timeInBetween > 10) {

@@ -7,19 +7,13 @@ class Wall extends Enemy {
     draw() {
         fill("white");
         stroke("white");
-        strokeWeight(10);
+        //        strokeWeight(10);
         if (this.state == "active") {
             for (var i = 0; i < this.nodes.length - 1; i++) {
-                line(this.nodes[i].x, this.nodes[i].y, this.nodes[i + 1].x, this.nodes[i + 1].y);
+                // line(this.nodes[i].x, this.nodes[i].y, this.nodes[i + 1].x, this.nodes[i + 1].y);
             }
         }
     }
     states() {}
     transitions() {}
-    isVertical(n1, n2) {
-        if (n1.x == n2.x) {
-            return true;
-        }
-        return false;
-    }
 }

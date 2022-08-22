@@ -26,11 +26,88 @@ var levelspecifics = [{}, {}, {
         },
         {
             "point1": { "x": 2, "y": 26 },
-            "point2": { "x": 11, "y": 26 },
-            "changeto": "wallh"
+            "point2": { "x": 10, "y": 26 },
+            "changeto": "wallh",
+            "rightend": true,
+            "leftend": true
+        },
+        {
+            "point1": { "x": 11, "y": 26 },
+            "point2": { "x": 11, "y": 20 },
+            "changeto": "wallv"
+        },
+        {
+            "point1": { "x": 12, "y": 20 },
+            "point2": { "x": 15, "y": 20 },
+            "changeto": "wallh",
+            "rightend": true,
+            "leftend": true
+        },
+        {
+            "point1": { "x": 16, "y": 26 },
+            "point2": { "x": 16, "y": 20 },
+            "changeto": "wallv"
+        },
+        {
+            "point1": { "x": 17, "y": 26 },
+            "point2": { "x": 26, "y": 26 },
+            "changeto": "wallh",
+            "rightend": true,
+            "leftend": true
+        },
+        {
+            "point1": { "x": 20, "y": 9 },
+            "point2": { "x": 26, "y": 9 },
+            "changeto": "wallh",
+            "rightend": true,
+            "leftend": true
+        },
+    ]
+}, {
+    "changearea": [{
+            "point1": { "x": 1, "y": 29 },
+            "point2": { "x": 1, "y": 30 },
+            "changeto": "waterr"
+        },
+        {
+            "point1": { "x": 2, "y": 29 },
+            "point2": { "x": 28, "y": 30 },
+            "changeto": "grass"
+        },
+        {
+            "point1": { "x": 29, "y": 29 },
+            "point2": { "x": 29, "y": 30 },
+            "changeto": "waterl"
+        },
+        {
+            "point1": { "x": 2, "y": 16 },
+            "point2": { "x": 28, "y": 16 },
+            "changeto": "wallh",
+            "leftend": true,
+            "rightend": true
+        },
+        {
+            "point1": { "x": 15, "y": 17 },
+            "point2": { "x": 15, "y": 21 },
+            "changeto": "wallv",
+        },
+        {
+            "point1": { "x": 15, "y": 27 },
+            "point2": { "x": 15, "y": 30 },
+            "changeto": "wallv",
+        },
+        {
+            "point1": { "x": 18, "y": 25 },
+            "point2": { "x": 18, "y": 17 },
+            "changeto": "wallv",
+        },
+        {
+            "point1": { "x": 24, "y": 30 },
+            "point2": { "x": 24, "y": 17 },
+            "changeto": "wallv",
         }
     ]
-}, {}];
+}];
 var spritemappings = [
     ["grass", 5, 0],
     ["waterl", 2, 1],
@@ -42,7 +119,7 @@ var spritemappings = [
     ["watertr", 0, 2],
     ["waterbl", 1, 1],
     ["waterbr", 0, 1],
-    ["wallv", 34, 19],
+    ["wallv", 56, 25],
     ["wallhl", 48, 23],
     ["wallhr", 49, 23],
     ["wallh", 52, 23]
@@ -150,7 +227,7 @@ function createLevels() {
     levels.push({
         "enemies": [
             new PowerupCollectable(powerups[0], 210, 390, 30),
-            new Laser(50, 50, 20, [{ "x": 450, "y": 150 }, { "x": 500, "y": 150 }], 30, 60),
+            new Laser(50, 50, 0.1, [{ "x": 432, "y": 153 }, { "x": 500, "y": 153 }], 30, 60),
             new PatrolGuard(400, 460, [
                 { "x": 400, "y": 460 },
                 { "x": 120, "y": 460 }
@@ -172,13 +249,8 @@ function createLevels() {
             new PatrolGuard(300, 200, [{ "x": 0, "y": 200 }, { "x": 500, "y": 200 }], 1, PI * 1.5, 60),
             new PatrolGuard(400, 200, [{ "x": 0, "y": 200 }, { "x": 500, "y": 200 }], 1, PI * 1.5, 60),
             new PatrolGuard(500, 200, [{ "x": 0, "y": 200 }, { "x": 500, "y": 200 }], 1, PI * 1.5, 60),
-            new Wall([{ "x": 0, "y": 260 }, { "x": 500, "y": 260 }]),
-            new Wall([{ "x": 250, "y": 260 }, { "x": 250, "y": 350 }]),
-            new Wall([{ "x": 250, "y": 500 }, { "x": 250, "y": 440 }]),
             new PatrolGuard(200, 300, [{ "x": 200, "y": 260 }, { "x": 200, "y": 500 }], 1, PI * 1.99999999, 60),
-            new Wall([{ "x": 300, "y": 260 }, { "x": 300, "y": 410 }]),
-            new Laser(50, 50, 20, [{ "x": 300, "y": 410 }, { "x": 300, "y": 500 }], 60, 60),
-            new Wall([{ "x": 390, "y": 260 }, { "x": 390, "y": 500 }]),
+            new Laser(50, 50, 0.1, [{ "x": 295.5, "y": 416 }, { "x": 295.5, "y": 500 }], 60, 60),
             new PatrolGuard(420, 290, [{ "x": 420, "y": 290 }], 1, 1, 1, PI / 70),
             new PatrolGuard(420, 390, [{ "x": 420, "y": 390 }], 1, 1, 1, PI / 70),
             new PatrolGuard(420, 340, [{ "x": 420, "y": 340 }], 1, 1, 1, PI / 70),
@@ -254,18 +326,37 @@ function addLevelSpecifics(level) {
             var width = Math.abs(current.point1.x - current.point2.x) + 1;
             var height = Math.abs(current.point1.y - current.point2.y) + 1;
             console.log(lesserpointx, lesserpointy, width, height);
+            if (current.changeto == "wallh") {
+                enemies.push(new Wall([{ "x": lesserpointx * 16, "y": (lesserpointy + height / 2) * 16 }, { "x": (lesserpointx + width) * 16, "y": (lesserpointy + height / 2) * 16 }]));
+            }
+            if (current.changeto == "wallv") {
+                enemies.push(new Wall([{ "x": lesserpointx * 16 + 3, "y": lesserpointy * 16 + 4 }, { "x": (lesserpointx) * 16 + 3, "y": (lesserpointy + height) * 16 - 5 }]));
+            }
             if (current.changeto == "wallh" && width > 2) {
                 for (var x = lesserpointx + 1; x < lesserpointx + width - 1; x++) {
                     for (var y = lesserpointy; y < lesserpointy + height; y++) {
                         backgroundtiles[y][x] = current.changeto;
                     }
                 }
-                for (var y = lesserpointy; y < lesserpointy + height; y++) {
-                    backgroundtiles[y][lesserpointx] = "wallhl";
+                if (current.leftend) {
+                    for (var y = lesserpointy; y < lesserpointy + height; y++) {
+                        backgroundtiles[y][lesserpointx] = "wallhl";
+                    }
+                } else {
+                    for (var y = lesserpointy; y < lesserpointy + height; y++) {
+                        backgroundtiles[y][lesserpointx + width - 1] = "wallh";
+                    }
                 }
-                for (var y = lesserpointy; y < lesserpointy + height; y++) {
-                    backgroundtiles[y][lesserpointx + width - 1] = "wallhr";
+                if (current.rightend) {
+                    for (var y = lesserpointy; y < lesserpointy + height; y++) {
+                        backgroundtiles[y][lesserpointx + width - 1] = "wallhr";
+                    }
+                } else {
+                    for (var y = lesserpointy; y < lesserpointy + height; y++) {
+                        backgroundtiles[y][lesserpointx + width - 1] = "wallh";
+                    }
                 }
+
             } else {
                 for (var x = lesserpointx; x < lesserpointx + width; x++) {
                     for (var y = lesserpointy; y < lesserpointy + height; y++) {

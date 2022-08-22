@@ -10,6 +10,7 @@ class Powerup {
         this.unlockedthislevel = false;
     }
     draw() {
+        noStroke();
         fill("black");
         image(this.icon, this.index * 30 + 20, 10, 20, 20);
         fill("white");

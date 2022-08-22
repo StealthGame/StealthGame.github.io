@@ -1,5 +1,5 @@
 var enemies, player, playing, objective, levels;
-var curlevel = 2;
+var curlevel = 0;
 var startscreenimg, howtoplayscreenimg, successimg, failureimg, smokeunlockimg, smokeimg, wallphaseimg, wallphaseunlockimg, spritesheet, guardimgs, energyimg, cameraimg;
 var playerimages = { "left": [], "right": [], "up": [], "down": [] }
 var unlocking = "";
