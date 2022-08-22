@@ -313,6 +313,7 @@ function createBaseIsland() {
 
 
 function addLevelSpecifics(level) {
+    backgroundtiles = originalbackgroundtiles;
     if (levelspecifics[level].change) {
         for (var i = 0; i < levelspecifics[level].change.length; i++) {
             backgroundtiles[levelspecifics[level].change[i].x][levelspecifics[level].change[i].y] = levelspecifics[level].change[i].changeto;
