@@ -23,3 +23,7 @@
     top: 329px;
     left: 55px;
 }
+
+#devmode {
+    display: none;
+}
