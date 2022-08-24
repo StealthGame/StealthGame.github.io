@@ -56,6 +56,7 @@ class PatrolGuard extends Enemy {
     }
     transitions() {
         if (devmode5) {
+
             return;
         }
         if (this.state != "chase") {

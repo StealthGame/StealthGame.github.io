@@ -2,10 +2,6 @@ var register = {};
 
 function keyPressed() {
     register[keyCode] = true;
-    if (keyCode == 80 && devmode) {
-        curlevel = parseInt(prompt("level?")) - 1;
-        setup();
-    }
 }
 
 function keyReleased() { register[keyCode] = false; }

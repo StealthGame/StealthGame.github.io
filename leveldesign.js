@@ -321,11 +321,14 @@ function addLevelSpecifics(level) {
             var lesserpointy = (current.point1.y > current.point2.y) ? current.point2.y : current.point1.y;
             var width = Math.abs(current.point1.x - current.point2.x) + 1;
             var height = Math.abs(current.point1.y - current.point2.y) + 1;
-            console.log(lesserpointx, lesserpointy, width, height);
+            console.log(current.changeto)
             if (current.changeto == "wallh") {
+                console.log("test")
                 enemies.push(new Wall([{ "x": lesserpointx * 16, "y": (lesserpointy + height / 2) * 16 }, { "x": (lesserpointx + width) * 16, "y": (lesserpointy + height / 2) * 16 }]));
+                console.log(enemies);
             }
             if (current.changeto == "wallv") {
+                console.log("test")
                 enemies.push(new Wall([{ "x": lesserpointx * 16 + 3, "y": lesserpointy * 16 + 4 }, { "x": (lesserpointx) * 16 + 3, "y": (lesserpointy + height) * 16 - 5 }]));
             }
             if (current.changeto == "wallh" && width > 2) {
