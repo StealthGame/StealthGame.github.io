@@ -149,13 +149,13 @@ document.getElementById("devbutton4").addEventListener("click", function() {
         if (!devmode4) {
             for (var enemy of enemies) {
                 if (enemy instanceof Wall) {
-                    enemy.playerCanPass = true;
+                    enemy.playerCanPass = false;
                 }
             }
         } else {
             for (var enemy of enemies) {
                 if (enemy instanceof Wall) {
-                    enemy.playerCanPass = false;
+                    enemy.playerCanPass = true;
                 }
             }
         }
