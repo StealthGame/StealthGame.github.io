@@ -58,19 +58,19 @@ function preload() {
 function setup() {
     powerups.push(new SmokeBombPowerup());
     powerups.push(new WallPhasePowerup());
-
     if (startedplaying) {
         createLevels();
+        setLevel(levels[curlevel]);
         addLevelSpecifics(curlevel);
     } else {
         createLevels();
+        setLevel(levels[curlevel]);
         createBaseIsland();
         addLevelSpecifics(curlevel);
     }
 
 
     playing = true;
-    setLevel(levels[curlevel]);
     createCanvas(496, 496);
 }
 
