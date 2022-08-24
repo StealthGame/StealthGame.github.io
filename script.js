@@ -284,6 +284,7 @@ function doCurrentAction() {
 }
 
 function checkGameOver() {
+    if (devmode5) { return; }
     for (var enemy of enemies) {
         if (enemy instanceof PatrolGuard) {
             if (rectOverlap({ "x": enemy.x - enemy.size / 2, "y": enemy.y - enemy.size / 2, "w": enemy.size, "h": enemy.size }, player)) {
